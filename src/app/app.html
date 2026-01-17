@@ -82,6 +82,7 @@
     width: 100%;
     max-width: 700px;
     margin-bottom: 3rem;
+    margin-left: 5rem;
   }
 
   .content h1 {
@@ -104,6 +105,10 @@
     align-items: start;
     flex-wrap: wrap;
     gap: 1.25rem;
+  }
+
+  .clicked {
+    background-color: blueviolet;
   }
 
   .pill {
@@ -130,6 +135,11 @@
   .pill:hover {
     background: color-mix(in srgb, var(--pill-accent) 15%, transparent);
   }
+
+  .pill:focus {
+    background-color: blueviolet;
+  }
+  
 
   .pill-group .pill:nth-child(6n + 1) {
     --pill-accent: var(--bright-blue);
@@ -185,6 +195,7 @@
 <main class="main">
   <div class="content">
     <div class="left-side">
+      <p>powered by:</p>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 982 239"
@@ -231,18 +242,17 @@
         </defs>
       </svg>
       <h1>Hello, {{ title() }}</h1>
-      <p>Congratulations! Your app is running. 🎉</p>
+      <p>Welcome to my universe 🎉</p>
+      <p>Currently exploring my interest in properties and interior design</p>
+      <p>Also check some of my favorite properties by clicking the home icon</p>
     </div>
     <div class="divider" role="separator" aria-label="Divider"></div>
     <div class="right-side">
       <div class="pill-group">
         @for (item of [
-          { title: 'Explore the Docs', link: 'https://angular.dev' },
-          { title: 'Learn with Tutorials', link: 'https://angular.dev/tutorials' },
-          { title: 'Prompt and best practices for AI', link: 'https://angular.dev/ai/develop-with-ai'},
-          { title: 'CLI Docs', link: 'https://angular.dev/tools/cli' },
-          { title: 'Angular Language Service', link: 'https://angular.dev/tools/language-service' },
-          { title: 'Angular DevTools', link: 'https://angular.dev/tools/devtools' },
+          { title: 'Marimekko verse', link: 'https://www.marimekko.com/dk_en' },
+          { title: 'IKEA', link: 'https://www.ikea.com'},
+          { title: 'Informa', link: 'https://informa.co.id' },   
         ]; track item.title) {
           <a
             class="pill"
@@ -251,6 +261,7 @@
             rel="noopener"
           >
             <span>{{ item.title }}</span>
+            
             <svg
               xmlns="http://www.w3.org/2000/svg"
               height="14"
@@ -264,10 +275,25 @@
             </svg>
           </a>
         }
+         <a
+            class="pill"
+            href='/homedecor'
+            id="homedec"
+            rel="noopener"
+          >
+          <span>Home Renovation</span>
+        </a>
+          <a
+            class="pill"
+            href='/marimdecor'
+            rel="noopener"
+          >
+          <span>Marimekko en la casa</span>
+        </a>
       </div>
       <div class="social-links">
         <a
-          href="https://github.com/angular/angular"
+          href="https://github.com/pinkanpaula"
           aria-label="Github"
           target="_blank"
           rel="noopener"
@@ -286,7 +312,7 @@
           </svg>
         </a>
         <a
-          href="https://twitter.com/angular"
+          href="https://x.com/paulapinkan"
           aria-label="Twitter"
           target="_blank"
           rel="noopener"
@@ -305,7 +331,7 @@
           </svg>
         </a>
         <a
-          href="https://www.youtube.com/channel/UCbn1OgGei-DV7aSRo_HaAiw"
+          href="https://www.youtube.com/@pinkanpaula"
           aria-label="Youtube"
           target="_blank"
           rel="noopener"
@@ -325,6 +351,17 @@
             />
           </svg>
         </a>
+         <a href="https://www.linkedin.com/in/pingkanpaulawetik/"
+          aria-label="linkedin"
+          target="_blank"
+          rel="noopener">
+            <img width="48" height="48" src="https://img.icons8.com/fluency/48/linkedin.png" alt="linkedin"/>
+            
+          </a>
+
+          <a [routerLink]="['/home']">
+            <img width="48" height="48" src="https://img.icons8.com/?size=100&id=74811&format=png&color=000000" alt="homepage"/>
+          </a>
       </div>
     </div>
   </div>
@@ -336,7 +373,12 @@
 <!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-
-<router-outlet />
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ <a [routerLink]="['/async']">Async</a>
+ <section> 
+  <app-home></app-home>
+</section>
+-->
+<section class="content">
+  <router-outlet></router-outlet>
+</section>
