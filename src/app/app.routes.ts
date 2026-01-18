@@ -26,7 +26,8 @@ export const routes: Routes = [
       {
         path: 'details/:id',
         component: Details,
-        title: 'Home details'
+        title: 'Home details',
+        
       },
       {
         path: 'homedecor',
